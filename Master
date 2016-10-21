@@ -9,8 +9,8 @@ while True:
         continue
     else:
         break
-print()
-print("Number of players: "+str(numberOfPlayers)+".")
+
+print("\n\nNumber of players: "+str(numberOfPlayers)+".")
 listOfIDs=["French","German","Italian","American","Russian","Spanish"] #nationality possibilities
 playerIDs=[]
 bankAccounts=[] #list declaration
@@ -40,7 +40,7 @@ for i in range(numberOfPlayers):
             while True:
                 decision=input("Type movecard to use a movecard if you have any, roll to roll the dice, and accuse to accuse another player").lower()
                 if decision not in acceptableMoves:
-                    print("Sorry, you can't do that")
+                    print("Sorry, you can't do that or you spelled it wrong")
                     continue
                 else:
                     if decision=="movecard":
@@ -53,6 +53,8 @@ for i in range(numberOfPlayers):
                                 else:
                                     positions[i]+=cardPicked
                                     moveCards[i].remove(cardPicked)
+                                     """add the move number to their position
+                            and remove the picked card from their cardlist"""
                                     break
                         else: #if they only have one movecard
                             cardPicked=moveCards[i]
