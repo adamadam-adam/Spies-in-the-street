@@ -60,19 +60,37 @@ for i in range(numberOfPlayers):
                             cardPicked=moveCards[i]
                             positions[i]+=cardPicked
                             print("You moved forward "+str(cardPicked)+" spaces")
-                            moveCards[i].remove(cardPicked) """add the move numer to their position,
-                            delete their moveCard array,
-                            and add a new empty moveCard array at their index"""
+                            moveCards[i].remove(cardPicked) #add the move numer to their position,
+                            #delete their moveCard array,
+                            #and add a new empty moveCard array at their index
                             moveCards[i].insert(i,[])
-                    if decision=="roll":
-                        playerRoll=input("What do you want to roll?") #TODO: Debugging feature replace with random from 1-6 for final release
+                    elif decision=="roll":
+                        playerRoll=int(input("What do you want to roll?")) #TODO: Debugging feature replace with random from 1 to 6 for final release
                         print("You rolled a "+str(playerRoll))
-                        positions[i]+=playerRoll 
+                        positions[i]+=playerRoll
+                    elif decision=="accuse":
+                        while True:
+                            accuseablePlayers=[x for x in range(1,numberOfPlayers+1) if x !=e]
+                            try:
+                                playerAccused=int(input("Which player do you want to accuse: \n"+accuseablePlayers)) #first part's straightforward; second part lists all players by from-one index except the player accu
+                            except ValueError:
+                                print("Type a digit!")
+                                continue
+                            if playerAccused not in accuseablePlayers:
+                                print("Type in a digit that you can pick")
+                                continue
+                            else: #if they typed a valid player number
+                                While True:
+                                    accusedID=input("What country do you think they're from?"+listOfIDs)
+                                    if accusedID not in listOfIDs:
+                                        print("Sorry, that's not a choice")
+                                        continue
+                                    else: #if they typed a valid nationality
+                                        break
+                                if accusedID==playerIDs[playerAccused-1]:
+                                    print("you win")
+                                else:
+                                    print("you lose")
         else:
             print("crap")
             continue #starts over if the player doesn't type yes
-
- 
- 
-
- 
